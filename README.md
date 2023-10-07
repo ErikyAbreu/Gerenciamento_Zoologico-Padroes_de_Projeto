@@ -1,1 +1,3 @@
 # Gerenciamento_Zoologico-Padroes_de_Projeto
+
+Uma atualização do sistema de gestão de um zoológico, implementando padrões de projeto. Este software tem como principal objetivo simplificar a administração do ambiente zoológico, incluindo o monitoramento de animais e funcionários. No sistema, é possível cadastrar funcionários e alocá-los adequadamente em seus respectivos setores e salas. O mesmo se aplica aos animais, pois é possível registrá-los e escolher entre cinco tipos de recintos. Além disso, o programa oferece funcionalidades como visualização das principais características dos animais, acompanhamento de suas visitas ao veterinário, e diversas outras funções úteis para a gestão eficiente do zoológico.
