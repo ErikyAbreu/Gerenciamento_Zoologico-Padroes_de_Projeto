@@ -1,0 +1,29 @@
+CREATE TABLE jaulas
+	(idJaula serial,
+	 modelo int,
+	 descricao varchar(500),
+	 primary key(idJaula));
+	 
+CREATE TABLE animais
+	(idAnimal serial,
+	peso float,
+	membros int,
+	idade int,
+	nome varchar(30),
+	jaulaId int,
+	primary key(idAnimal),
+	foreign key (jaulaID) references jaulas ON DELETE CASCADE);
+	
+CREATE TABLE ControleDeJaulas
+	(id serial,
+	modelo int,
+	quantidadeUtilizada int,
+	primary key (id));
+	
+INSERT INTO ControleDeJaulas (modelo, quantidadeUtilizada)
+	VALUES (1,0),
+		   (2,0),
+		   (3,0),
+		   (4,0),
+		   (5,0);
+
