@@ -2,6 +2,7 @@ CREATE TABLE jaulas
 	(idJaula serial,
 	 modelo int,
 	 descricao varchar(500),
+	 animalid int,
 	 primary key(idJaula));
 	 
 CREATE TABLE animais
@@ -11,9 +12,16 @@ CREATE TABLE animais
 	idade int,
 	nome varchar(30),
 	jaulaId int,
-	primary key(idAnimal),
-	foreign key (jaulaID) references jaulas ON DELETE CASCADE);
+	primary key(idAnimal));
 	
+ALTER TABLE jaulas
+ADD FOREIGN KEY (animalid) REFERENCES animais(idAnimal) ON DELETE CASCADE;
+
+ALTER TABLE animais
+ADD FOREIGN KEY (jaulaId) REFERENCES jaulas(idJaula) ON DELETE CASCADE;
+
+
+
 CREATE TABLE ControleDeJaulas
 	(id serial,
 	modelo int,
