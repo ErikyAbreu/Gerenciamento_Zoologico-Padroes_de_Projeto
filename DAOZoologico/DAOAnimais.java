@@ -56,7 +56,9 @@ public class DAOAnimais {
         public boolean removerAnimal(int idAnimal){
             sql = "DELETE FROM animais WHERE idanimal = ?";
             a = false;
-            try {
+            int modelo = auxiliar.selecionaModelo(idAnimal);
+            if(auxiliar.removerModelo(modelo)){
+                try {
                 PreparedStatement instrucao = conectar.prepareStatement(sql);
                 instrucao.setInt(1, idAnimal);
                 int linhasAfetadas = instrucao.executeUpdate();
@@ -68,6 +70,8 @@ public class DAOAnimais {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            }
+            
             return a;
             
         }
