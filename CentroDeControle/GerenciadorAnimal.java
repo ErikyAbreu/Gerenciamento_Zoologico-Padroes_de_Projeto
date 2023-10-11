@@ -10,8 +10,9 @@ import DAOZoologico.DAOAnimais;
 public class GerenciadorAnimal implements Gerenciador{
 private ArrayList<Animal> listaAnimal;
 	  DAOAnimais daoAnimais = new DAOAnimais();
+	  boolean a = true;
 	  public GerenciadorAnimal(){
-			setListaAnimal(new ArrayList<Animal>());
+			
 		}
 
 		public ArrayList<Animal> getListaAnimal() {
@@ -23,7 +24,7 @@ private ArrayList<Animal> listaAnimal;
 		}
 		
 	  public void AddAnimal(Animal A){
-      boolean a = daoAnimais.adicionaAnimal(A); 
+      a = daoAnimais.adicionaAnimal(A); 
 	      if(a){
 	    	  JOptionPane.showMessageDialog(null,"ANIMAL ADICIONADO COM SUCESSO!");
 	          return;
@@ -33,31 +34,22 @@ private ArrayList<Animal> listaAnimal;
 	  }
 	  
 	  public void remover(int idAnimal){
-	   
-	    JOptionPane.showMessageDialog(null,"ANIMAL INEXISTENTE!");
+		a = daoAnimais.removerAnimal(idAnimal);
+		if(a){
+	    	  JOptionPane.showMessageDialog(null,"ANIMAL REMOVIDO COM SUCESSO!");
+	          return;
+	      }
+	    JOptionPane.showMessageDialog(null,"NÂO FOI POSSIVEL REMOVER O ANIMAL!");
 	  }
 
 	  public void imprimir(int idAnimal){
-	    
-	    JOptionPane.showMessageDialog(null,"ANIMAL INEXISTENTE!");
+	    daoAnimais.imprimirAnimal(idAnimal);
+	    //JOptionPane.showMessageDialog(null,"ANIMAL INEXISTENTE!");
 	  }
 
-	 Animal buscarAnimal(int idAnimal){
-	    
-	    JOptionPane.showMessageDialog(null,"ANIMAL INEXISTENTE!");
-		return null;
-	  }
-	  
-	 
-	  
 	  public void imprimirTodos(){
-		  if(listaAnimal.isEmpty()) {
-			  JOptionPane.showMessageDialog(null,"LISTA VAZIA!");
-			} else {
-				for(Animal z:listaAnimal) {
-					JOptionPane.showMessageDialog(null,z);
-			}
-			}
-	  }
+		  daoAnimais.imprimirAnimais();
+	  }  
+	  
 }	  
 	   
