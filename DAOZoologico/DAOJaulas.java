@@ -32,6 +32,16 @@ public class DAOJaulas {
         return idJaula;
     }
 
-
+    public void atualizaIdDaJaula(int idJaula, int idanimal){
+        sql ="UPDATE jaulas SET animalid = ? WHERE idjaula = ?";
+        try {
+            PreparedStatement instrucao = conectar.prepareStatement(sql);
+            instrucao.setInt(1,idanimal);
+            instrucao.setInt(2, idJaula);
+            instrucao.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
