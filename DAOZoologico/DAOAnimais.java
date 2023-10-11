@@ -76,6 +76,50 @@ public class DAOAnimais {
             
         }
 
+        public void imprimirAnimal(int idAnimal){
+            sql = "SELECT animais.*, jaulas.modelo AS modelo, jaulas.descricao AS descricao FROM animais INNER JOIN jaulas ON animais.idanimal = jaulas.animalid WHERE idanimal = ?";
+            try {
+                PreparedStatement instrucao = conectar.prepareStatement(sql);
+                instrucao.setInt(1, idAnimal);
+                ResultSet consulta = instrucao.executeQuery();
+                while(consulta.next()){
+                  int animalId = consulta.getInt("idAnimal");
+                  double peso = consulta.getDouble("peso");
+                  int membros = consulta.getInt("membros");
+                  int idade = consulta.getInt("idade");
+                  String nome = consulta.getString("nome");
+                  int idAnimalJaula = consulta.getInt("jaulaid");
+                  int modelo = consulta.getInt("modelo");
+                  String descricaoJaula = consulta.getString("descricao");
+
+                  JOptionPane.showMessageDialog(null, "DADOS DO ANIMAL\nID do animal: "+animalId+" \nPeso do animal: "+peso+"\nQuantidade de membros: "+membros+"\nIdade do animal: "+idade+"\nNome do animal: "+nome+"\n\nDADOS DA JAULA\nID da jaula: "+idAnimalJaula+"\nModelo da jaula: "+modelo+"\nDescricao da jaula: \n"+descricaoJaula);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void imprimirAnimais(){
+            sql = "SELECT animais.*, jaulas.modelo AS modelo, jaulas.descricao AS descricao FROM animais INNER JOIN jaulas ON animais.idanimal = jaulas.animalid";
+            try {
+                PreparedStatement instrucao = conectar.prepareStatement(sql);
+                ResultSet consulta = instrucao.executeQuery();
+                while(consulta.next()){
+                  int animalId = consulta.getInt("idAnimal");
+                  double peso = consulta.getDouble("peso");
+                  int membros = consulta.getInt("membros");
+                  int idade = consulta.getInt("idade");
+                  String nome = consulta.getString("nome");
+                  int idAnimalJaula = consulta.getInt("jaulaid");
+                  int modelo = consulta.getInt("modelo");
+                  String descricaoJaula = consulta.getString("descricao");
+
+                  JOptionPane.showMessageDialog(null, "DADOS DO ANIMAL\nID do animal: "+animalId+" \nPeso do animal: "+peso+"\nQuantidade de membros: "+membros+"\nIdade do animal: "+idade+"\nNome do animal: "+nome+"\n\nDADOS DA JAULA\nID da jaula: "+idAnimalJaula+"\nModelo da jaula: "+modelo+"\nDescricao da jaula: \n"+descricaoJaula);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
 
 }
