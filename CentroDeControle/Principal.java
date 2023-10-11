@@ -34,6 +34,7 @@ public class Principal {
 						break;
 						
 		  		case 2: 
+					//A.imprimirTodos();
 		  			A.remover(Integer.parseInt(JOptionPane.showInputDialog(null, "ID DO ANIMAL QUE DESEJA REMOVER: ","REMOVER ANIMAL", JOptionPane.INFORMATION_MESSAGE)));
 		  			break;
 		  			
@@ -47,26 +48,25 @@ public class Principal {
 		  			
 		  		case 5:
 		  			TAINF = Integer.parseInt(JOptionPane.showInputDialog(null, "INFORME A CLASSE DO ANIMAL:\n1-ANFÍBIOS\n2-AVES\n3-MAMÍFEROS \n4-PEIXES \n5-RÉPTEIS", "ANIMAL",JOptionPane.INFORMATION_MESSAGE));
-		  			int IDINF = Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:"));
 		  			switch (TAINF) {
 		  			case 1:
-		  				Anfibios AINF = (Anfibios) A.buscarAnimal(IDINF);
+		  				Anfibios AINF = new Anfibios();
 		  				AINF.InfoAnimais();
 		  				break;
 		  			case 2:
-		  				Aves AvINF = (Aves) A.buscarAnimal(IDINF);
+		  				Aves AvINF = new Aves();
 		  				AvINF.InfoAnimais();
 		  				break;
 		  			case 3:
-		  				Mamifero MINF = (Mamifero) A.buscarAnimal(IDINF);
+		  				Mamifero MINF = new Mamifero();
 		  				MINF.InfoAnimais();
 		  				break;
 		  			case 4:
-		  				Peixes PINF = (Peixes) A.buscarAnimal(IDINF);
+		  				Peixes PINF = new Peixes();
 		  				PINF.InfoAnimais();
 		  				break;
 		  			case 5:
-		  				Repteis RINF = (Repteis) A.buscarAnimal(IDINF);
+		  				Repteis RINF = new Repteis();
 		  				RINF.InfoAnimais();
 		  				break;
 		  			default:
@@ -121,23 +121,23 @@ public class Principal {
 		  				
 		  			switch (TAVV) {
 		  			case 1:
-		  				Anfibios AVV = (Anfibios) A.buscarAnimal(IDVV);
+		  				Anfibios AVV = new Anfibios();
 			  			AVV.VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			case 2:
-		  				Aves AvVV = (Aves) A.buscarAnimal(IDVV);
+		  				Aves AvVV = new Aves();
 			  			AvVV.VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			case 3:
-			  			Mamifero MVV = (Mamifero) A.buscarAnimal(IDVV);
+			  			Mamifero MVV = new Mamifero();
 			  			MVV.VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			case 4:
-		  				Peixes PVV = (Peixes) A.buscarAnimal(IDVV);
+		  				Peixes PVV = new Peixes();
 			  			PVV.VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			case 5:
-		  				Repteis RVV = (Repteis) A.buscarAnimal(IDVV);
+		  				Repteis RVV = new Repteis();
 			  			RVV.VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			default:
@@ -146,8 +146,8 @@ public class Principal {
 		  			}
 		  			break;
 		  		case 8:
-		  			int IDG = Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:", "ANÁLISE DA GESTAÇÃO", JOptionPane.QUESTION_MESSAGE));
-		  			Mamifero MG = (Mamifero) A.buscarAnimal(IDG);
+		  			Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:", "ANÁLISE DA GESTAÇÃO", JOptionPane.QUESTION_MESSAGE));
+		  			Mamifero MG = new Mamifero();
 		  			MG.Analisedagestacao(Integer.parseInt(JOptionPane.showInputDialog(null,"TEMPO DE GESTAÇÃO: ")));
 		  			break;
 		  		default:
