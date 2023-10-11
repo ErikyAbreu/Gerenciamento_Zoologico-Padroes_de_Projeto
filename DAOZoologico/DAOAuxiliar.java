@@ -2,8 +2,6 @@ package DAOZoologico;
 
 import java.sql.*;
 
-import Jaulas.Jaula;
-
 public class DAOAuxiliar{
     private String sql;
     private Connection conectar = ConexaoPostgreSQL.getInstancia().getConexao();
@@ -21,6 +19,7 @@ public class DAOAuxiliar{
                 a = false;
             } else {
                 a = true;
+                incrementaQuantidadeDoModelo(modelo);
             }
             }
             
@@ -30,8 +29,16 @@ public class DAOAuxiliar{
         return a;
     }
 
-    public void incrementaQuantidadeDoModelo(int modelo){
-
+    private void incrementaQuantidadeDoModelo(int modelo){
+    sql = "UPDATE controledejaulas SET quantidadeUtilizada = quantidadeUtilizada + 1 WHERE modelo = ?";
+    try {
+        PreparedStatement instrucao = conectar.prepareStatement(sql);
+        instrucao.setInt(1, modelo);
+        instrucao.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
     }
 
 }
