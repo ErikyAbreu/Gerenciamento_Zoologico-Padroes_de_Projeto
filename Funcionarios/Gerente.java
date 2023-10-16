@@ -1,6 +1,5 @@
 package Funcionarios;
 import Jaulas.*;
-import javax.swing.JOptionPane;
 
 public class Gerente extends Funcionario{
 	public Gerente() {
@@ -11,14 +10,6 @@ public class Gerente extends Funcionario{
 	public Gerente(String nome, int matricula, double salario_base, Sala sala) {
 		super(nome, matricula, salario_base, sala);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public double calculaSalario() {
-		// TODO Auto-generated method stub
-		double sg = getSalario_base()*2;
-		JOptionPane.showMessageDialog(null, "SALÁRIO DO GERENTE: " + sg);
-		return sg;
 	}
 
 	@Override

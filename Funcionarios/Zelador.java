@@ -1,6 +1,5 @@
 package Funcionarios;
 import Jaulas.*;
-import javax.swing.JOptionPane;
 
 public class Zelador extends Funcionario {
 	public Zelador() {
@@ -13,12 +12,6 @@ public class Zelador extends Funcionario {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public double calculaSalario() {
-		double sz = getSalario_base();
-		JOptionPane.showMessageDialog(null, "SALÁRIO DO ZELADOR: " + sz);
-		return sz;
-	}
 
 	@Override
 	public String toString() {

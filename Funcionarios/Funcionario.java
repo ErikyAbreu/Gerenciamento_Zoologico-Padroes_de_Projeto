@@ -68,8 +68,6 @@ public abstract class Funcionario {
 	public String toString() {
 		return nome + " - INFORMAÇÕES:\n" + " MATRÍCULA: " + matricula + "\n SALÁRIO BASE: " + salario_base + "\n" + sala;
 	}
-
-	public abstract double calculaSalario();
 	
 
 }
