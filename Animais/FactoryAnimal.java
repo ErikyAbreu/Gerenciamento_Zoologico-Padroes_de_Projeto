@@ -56,5 +56,29 @@ public class FactoryAnimal {
 			
 			}
 	}
+
+	public Animal getAnimalVazio(int TA2) {
+		switch (TA2) {
+			case 1:
+			return new Anfibios();
+						
+			case 2:
+				return new Aves();
+				
+			case 3:
+				return new Mamifero();
+				
+			case 4:
+				return new Peixes();
+				
+			case 5:
+				return new Repteis();
+				
+			default:
+			JOptionPane.showMessageDialog(null, "OPÇÃO INVÁLIDA! TENTE NOVAMENTE.");
+				return null;
+			
+			}
+	}
 	
 }
