@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import Funcionarios.Funcionario;
 import Funcionarios.Veterinario;
 
@@ -58,6 +60,48 @@ public class DAOFuncionarios {
             return a;
     }
 
+    public void imprimirFuncionario(int matriculaFunc){
+        sql = "SELECT funcionarios.*, salas.numero_da_sala AS numero_da_sala, salas.setor AS setor, FROM funcionarios INNER JOIN salas ON funcionarios.sala = sala.numero_da_sala WHERE id = ?";
+        PreparedStatement instrucao;
+        try {
+            instrucao = conectar.prepareStatement(sql);
+            instrucao.setInt(1,matriculaFunc);
+            ResultSet consulta = instrucao.executeQuery();
+            if(consulta.next()){
+                String nome = consulta.getString("nome");
+                String cargo = consulta.getString("cargo");
+                int matriculaFuncionario = consulta.getInt("matricula");
+                double salario = consulta.getDouble("salario_base");
+                int numeroDaSala = consulta.getInt("numero_da_sala");
+                int setor = consulta.getInt("setor");
+                JOptionPane.showMessageDialog(null, "Nome do funcionario: "+nome+"\nCargo: "+cargo+"\nMatricula do funcionario: "+matriculaFuncionario+"\nSalario: "+salario+"\nNumero da sala: "+numeroDaSala+"\nSetor: "+setor+"\n");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+                
+    }
+
+    public void imprimirFuncionarios(){
+        sql = "SELECT funcionarios.*, salas.numero_da_sala AS numero_da_sala, salas.setor AS setor, FROM funcionarios INNER JOIN salas ON funcionarios.sala = sala.numero_da_sala ";
+        PreparedStatement instrucao;
+        try {
+            instrucao = conectar.prepareStatement(sql);
+            ResultSet consulta = instrucao.executeQuery();
+            if(consulta.next()){
+                String nome = consulta.getString("nome");
+                String cargo = consulta.getString("cargo");
+                int matriculaFuncionario = consulta.getInt("matricula");
+                double salario = consulta.getDouble("salario_base");
+                int numeroDaSala = consulta.getInt("numero_da_sala");
+                int setor = consulta.getInt("setor");
+                JOptionPane.showMessageDialog(null, "Nome do funcionario: "+nome+"\nCargo: "+cargo+"\nMatricula do funcionario: "+matriculaFuncionario+"\nSalario: "+salario+"\nNumero da sala: "+numeroDaSala+"\nSetor: "+setor+"\n");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+                
+    }
 
     public Veterinario getVeterinario(int matricula){
     Veterinario vet = null;
