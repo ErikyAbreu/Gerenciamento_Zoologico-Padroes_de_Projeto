@@ -111,34 +111,30 @@ public class Principal {
 		  			
 		  			break;
 		  		case 7:
-		  			TAVV = Integer.parseInt(JOptionPane.showInputDialog(null, "INFORME A CLASSE DO ANIMAL:\n1-ANFÍBIOS\n2-AVES\n3-MAMÍFEROS \n4-PEIXES \n5-RÉPTEIS", "ANIMAL",JOptionPane.INFORMATION_MESSAGE));
+		  			
 		  			int IDVV = 0;
-		  			Veterinario VVV = new Veterinario();
-		  			if(TAVV < 6) {
-		  				 IDVV = Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:"));
-		  				 VVV = (Veterinario) F.buscarFuncionario(Integer.parseInt(JOptionPane.showInputDialog(null,"MATRÍCULA DO VETERINÁRIO:")));
-		  				}
-		  				
-		  			switch (TAVV) {
-		  			case 1:
-		  				factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
-			  			break;
-		  			case 2:
-		  				factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
-			  			break;
-		  			case 3:
-			  			factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
-			  			break;
-		  			case 4:
-		  				factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
-			  			break;
-		  			case 5:
-		  				factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
-			  			break;
-		  			default:
-						JOptionPane.showMessageDialog(null, "OPÇÃO INVÁLIDA! TENTE NOVAMENTE.");
-						break;
-		  			}
+					IDVV = Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:"));
+		  			String tipoDoAnimal = A.getTipo(IDVV); 
+		  			Veterinario VVV = F.buscarFuncionario(Integer.parseInt(JOptionPane.showInputDialog(null,"MATRÍCULA DO VETERINÁRIO:")));	
+		  			if(!VVV.equals(null)){
+		  			if(tipoDoAnimal.equals("Anfibio")){
+						factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
+					} else if (tipoDoAnimal.equals("Ave")){
+						factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
+					} else if(tipoDoAnimal.equals("Mamifero")){
+						factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
+					} else if(tipoDoAnimal.equals("Peixe")){
+						factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
+					} else if(tipoDoAnimal.equals("Reptil")){
+						factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
+					} else {
+						JOptionPane.showMessageDialog(null, "ID DO ANIMAL INVÁLIDO! TENTE NOVAMENTE.");
+					}	
+				} else {
+					JOptionPane.showMessageDialog(null, "MATRICULA DO VETERINARIO INVÁLIDA! TENTE NOVAMENTE.");
+				}
+						
+		  			
 		  			break;
 		  		case 8:
 		  			Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:", "ANÁLISE DA GESTAÇÃO", JOptionPane.QUESTION_MESSAGE));
@@ -175,16 +171,16 @@ public class Principal {
 			  			}
 			  			switch (TFCS) {
 			  			case 1:
-			  				Gerente GCS = (Gerente) F.buscarFuncionario(MCS);
-				  			GCS.calculaSalario();
+			  			//	Gerente GCS = (Gerente) F.buscarFuncionario(MCS);
+				  			//GCS.calculaSalario();
 				  			break;
 			  			case 2:
 			  				Veterinario VCS = (Veterinario) F.buscarFuncionario(MCS);
 				  			VCS.calculaSalario();
 				  			break;
 			  			case 3:
-				  			Zelador ZCS = (Zelador) F.buscarFuncionario(MCS);
-				  			ZCS.calculaSalario();
+				  		//	Zelador ZCS = (Zelador) F.buscarFuncionario(MCS);
+				  			//ZCS.calculaSalario();
 				  			break;
 			  			default:
 							JOptionPane.showMessageDialog(null, "OPÇÃO INVÁLIDA! TENTE NOVAMENTE.");
