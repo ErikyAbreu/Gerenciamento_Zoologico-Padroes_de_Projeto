@@ -41,18 +41,17 @@ public class GerenciadorFuncionarios implements Gerenciador {
 	}
 	
 	public void imprimir(int matricula) {
-		
-		JOptionPane.showMessageDialog(null,"FUNCIONÁRIO INEXISTENTE!");
+		daoFuncionario.imprimirFuncionario(matricula);
 	}	
+
+	public void imprimirTodos() {
+		daoFuncionario.imprimirFuncionarios();
+	}	
+
 	
 	 public Veterinario buscarFuncionario(int matricula){
 		        Veterinario vet = daoFuncionario.getVeterinario(matricula);
 					return vet;     	    
 		    
 		  }
-	
-	public void imprimirTodos() {
-		
-		
-	}
 }
