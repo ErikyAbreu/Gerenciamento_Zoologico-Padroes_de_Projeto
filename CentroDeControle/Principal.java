@@ -15,7 +15,6 @@ public class Principal {
 		  int T1 = 0; //PARÂMETRO PARA O MENU
 		  int TA = 0; //PARÂMETRO PARA ESCOLHA DO MENU ANIMAL 
 		  int TA2 = 0; //PARÂMETRO PARA ESCOLHA DO TIPO DE ANIMAL
-		  int TAVV = 0;
 		  int TAINF = 0;
 		  int TF = 0; //PARÂMETRO PARA ESCOLHA DO MENU FUNCIONÁRIO
 		  int TF2 = 0; //PARÂMETRO PARA ESCOLHA DO TIPO DE FUNCIONÁRIO
@@ -136,10 +135,8 @@ public class Principal {
 						
 		  			
 		  			break;
-		  		case 8:
-		  			Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:", "ANÁLISE DA GESTAÇÃO", JOptionPane.QUESTION_MESSAGE));
-		  			Mamifero MG = new Mamifero();
-		  			MG.Analisedagestacao(Integer.parseInt(JOptionPane.showInputDialog(null,"TEMPO DE GESTAÇÃO: ")));
+		  		case 8:	
+		  			A.gestacao(Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:", "ANÁLISE DA GESTAÇÃO", JOptionPane.QUESTION_MESSAGE)), Integer.parseInt(JOptionPane.showInputDialog(null,"TEMPO DE GESTAÇÃO: ")));
 		  			break;
 		  		default:
 					JOptionPane.showMessageDialog(null, "OPÇÃO INVÁLIDA! TENTE NOVAMENTE.");
