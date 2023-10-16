@@ -33,8 +33,10 @@ public class GerenciadorFuncionarios implements Gerenciador {
 	}	
 	
 	public void remover(int matricula) {
-		
-		
+		if(daoFuncionario.removerFuncionario(matricula)){
+			JOptionPane.showMessageDialog(null,"FUNCIONARIO REMOVIDO COM SUCESSO!");
+			return;
+		}
 		JOptionPane.showMessageDialog(null,"FUNCIONÁRIO INEXISTENTE!");
 	}
 	
