@@ -91,4 +91,21 @@ public class DAOAuxiliar{
         return modelo;
     }
 
+    public int getGestacao(int idAnimal){
+        int gestacao = 0;
+        sql = "SELECT CASE WHEN tipo = 'Mamifero' THEN gestacao END AS gestacao FROM animais WHERE idAnimal = ?";
+        try {
+            PreparedStatement instrucao = conectar.prepareStatement(sql);
+            instrucao.setInt(1, idAnimal);
+            ResultSet consulta = instrucao.executeQuery();
+            while(consulta.next()){
+               gestacao = consulta.getInt("gestacao");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return gestacao;
+    }
+
 }
