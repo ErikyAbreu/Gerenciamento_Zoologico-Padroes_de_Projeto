@@ -13,7 +13,7 @@ public class Principal {
 		  FactoryFuncionario factoryFuncionario = new FactoryFuncionario();
 		  Scanner sc = new Scanner(System.in);
 		  int T1 = 0; //PARÂMETRO PARA O MENU
-		  int TA = 0; //PARÂMETRO PARA ESCOLHA DO MENU ANIMAL
+		  int TA = 0; //PARÂMETRO PARA ESCOLHA DO MENU ANIMAL 
 		  int TA2 = 0; //PARÂMETRO PARA ESCOLHA DO TIPO DE ANIMAL
 		  int TAVV = 0;
 		  int TAINF = 0;
@@ -121,24 +121,19 @@ public class Principal {
 		  				
 		  			switch (TAVV) {
 		  			case 1:
-		  				Anfibios AVV = new Anfibios();
-			  			AVV.VisitaAoVeterinario(VVV, 0, IDVV);
+		  				factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			case 2:
-		  				Aves AvVV = new Aves();
-			  			AvVV.VisitaAoVeterinario(VVV, 0, IDVV);
+		  				factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			case 3:
-			  			Mamifero MVV = new Mamifero();
-			  			MVV.VisitaAoVeterinario(VVV, 0, IDVV);
+			  			factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			case 4:
-		  				Peixes PVV = new Peixes();
-			  			PVV.VisitaAoVeterinario(VVV, 0, IDVV);
+		  				factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			case 5:
-		  				Repteis RVV = new Repteis();
-			  			RVV.VisitaAoVeterinario(VVV, 0, IDVV);
+		  				factoryAnimal.getAnimalVazio(IDVV).VisitaAoVeterinario(VVV, 0, IDVV);
 			  			break;
 		  			default:
 						JOptionPane.showMessageDialog(null, "OPÇÃO INVÁLIDA! TENTE NOVAMENTE.");
