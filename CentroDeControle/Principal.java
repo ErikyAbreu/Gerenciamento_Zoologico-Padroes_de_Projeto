@@ -18,7 +18,6 @@ public class Principal {
 		  int TAINF = 0;
 		  int TF = 0; //PARÂMETRO PARA ESCOLHA DO MENU FUNCIONÁRIO
 		  int TF2 = 0; //PARÂMETRO PARA ESCOLHA DO TIPO DE FUNCIONÁRIO
-		  int TFCS = 0;
 		  
 		  do{
 			  try {
@@ -144,7 +143,7 @@ public class Principal {
 		  		}
 					break;
 		  	case 2:
-		  	TF = Integer.parseInt(JOptionPane.showInputDialog(null, "DIGITE:\n1-ADICIONAR FUNCIONÁRIO\n2-REMOVER FUNCIONÁRIO\n3-IMPRIMIR FUNCIONÁRIO \n4-IMPRIMIR TODOS FUNCIONÁRIOS\n5-CALCULAR SALÁRIO DO FUNCIONÁRIO","MENU FUNCIONÁRIOS", JOptionPane.INFORMATION_MESSAGE));
+		  	TF = Integer.parseInt(JOptionPane.showInputDialog(null, "DIGITE:\n1-ADICIONAR FUNCIONÁRIO\n2-REMOVER FUNCIONÁRIO\n3-IMPRIMIR FUNCIONÁRIO \n4-IMPRIMIR TODOS FUNCIONÁRIOS","MENU FUNCIONÁRIOS", JOptionPane.INFORMATION_MESSAGE));
 		  			switch (TF) {
 		  			case 1:
 		  				TF2 = Integer.parseInt(JOptionPane.showInputDialog(null, "DIGITE:\n1-GERENTE\n2-VETERINÁRIO\n3-ZELADOR","FUNCIONÁRIOS", JOptionPane.INFORMATION_MESSAGE));
@@ -158,30 +157,7 @@ public class Principal {
 			  			break;
 			  		case 4:
 			  			F.imprimirTodos();
-			  			break;
-			  		case 5:
-			  			TFCS = Integer.parseInt(JOptionPane.showInputDialog(null, "DIGITE:\n1-GERENTE\n2-VETERINÁRIO\n3-ZELADOR","ESCOLHA O TIPO DO FUNCIONÁRIOS", JOptionPane.INFORMATION_MESSAGE));
-			  			int MCS = 0;
-			  			if(TFCS < 4) {
-			  				MCS = Integer.parseInt(JOptionPane.showInputDialog(null,"MATRICULA DO FUNCIONÁRIO:"));
-			  			}
-			  			switch (TFCS) {
-			  			case 1:
-			  			//	Gerente GCS = (Gerente) F.buscarFuncionario(MCS);
-				  			//GCS.calculaSalario();
-				  			break;
-			  			case 2:
-			  				Veterinario VCS = (Veterinario) F.buscarFuncionario(MCS);
-				  			VCS.calculaSalario();
-				  			break;
-			  			case 3:
-				  		//	Zelador ZCS = (Zelador) F.buscarFuncionario(MCS);
-				  			//ZCS.calculaSalario();
-				  			break;
-			  			default:
-							JOptionPane.showMessageDialog(null, "OPÇÃO INVÁLIDA! TENTE NOVAMENTE.");
-							break;
-		  			}
+			  			break;  					  			
 			  		default:
 			  			JOptionPane.showMessageDialog(null, "OPÇÃO INVÁLIDA! TENTE NOVAMENTE.");
 			  			break;
