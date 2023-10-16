@@ -1,27 +1,17 @@
 package CentroDeControle;
 
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 import Animais.Animal;
 import DAOZoologico.DAOAnimais;
 
 public class GerenciadorAnimal implements Gerenciador{
-private ArrayList<Animal> listaAnimal;
 	  DAOAnimais daoAnimais = new DAOAnimais();
 	  boolean a = true;
 	  public GerenciadorAnimal(){
 			
 		}
 
-		public ArrayList<Animal> getListaAnimal() {
-			return listaAnimal;
-		}
-
-		public void setListaAnimal(ArrayList<Animal> listaAnimal) {
-			this.listaAnimal = listaAnimal;
-		}
 		
 	  public void AddAnimal(Animal A){
       a = daoAnimais.adicionaAnimal(A); 
@@ -50,6 +40,23 @@ private ArrayList<Animal> listaAnimal;
 	  public void imprimirTodos(){
 		  daoAnimais.imprimirAnimais();
 	  }  
+
+	  public String getTipo(int idAnimal){
+		String tipoDoAnimal = daoAnimais.getTipo(idAnimal);
+		return tipoDoAnimal;
+	  }
+
+	  public void gestacao(int idAnimal, int tempGravida){
+		int gestacao = daoAnimais.gestacaoDoAnimal(idAnimal);
+			if(tempGravida == gestacao) {
+				JOptionPane.showMessageDialog(null,"O PARTO ESTÁ PRÓXIMO!");
+			} if (tempGravida >= (gestacao/2) && tempGravida < gestacao) {
+				JOptionPane.showMessageDialog(null,"REALIZAR ULTRASSOM!");
+			}else {
+				JOptionPane.showMessageDialog(null,"\n O ANIMAL ESTÁ GRÁVIDA!"); 
+			}
+		
+	  }
 	  
 }	  
 	   
