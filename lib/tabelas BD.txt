@@ -11,6 +11,11 @@ CREATE TABLE animais
 	membros int,
 	idade int,
 	nome varchar(30),
+	tipo varchar(12),
+	cor_da_pena varchar(12),
+	cor_das_escamas varchar(12),
+	cor_do_pelo varchar(12),
+	gestacao int,
 	jaulaId int,
 	primary key(idAnimal));
 	
@@ -34,4 +39,25 @@ INSERT INTO ControleDeJaulas (modelo, quantidadeUtilizada)
 		   (3,0),
 		   (4,0),
 		   (5,0);
+
+CREATE TABLE funcionarios
+	(id serial,
+	nome varchar(30),
+	cargo varchar(30),
+	matricula int,
+	sala int,
+	salario_base float,
+	 primary key (id));	
+	 
+CREATE TABLE salas
+	(numero_da_sala serial,
+	setor int,
+	funcionario int,
+	primary key (numero_da_sala));
+
+ALTER TABLE funcionarios
+ADD FOREIGN KEY (sala) REFERENCES salas(numero_da_sala) ON DELETE CASCADE;
+
+ALTER TABLE salas
+ADD FOREIGN KEY (funcionario) REFERENCES funcionarios(id) ON DELETE CASCADE;
 
