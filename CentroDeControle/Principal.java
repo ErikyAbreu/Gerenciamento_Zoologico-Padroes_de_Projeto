@@ -132,8 +132,7 @@ public class Principal {
 				} else {
 					JOptionPane.showMessageDialog(null, "MATRICULA DO VETERINARIO INVÁLIDA! TENTE NOVAMENTE.");
 				}
-						
-		  			
+								  			
 		  			break;
 		  		case 8:	
 		  			A.gestacao(Integer.parseInt(JOptionPane.showInputDialog(null,"ID DO ANIMAL:", "ANÁLISE DA GESTAÇÃO", JOptionPane.QUESTION_MESSAGE)), Integer.parseInt(JOptionPane.showInputDialog(null,"TEMPO DE GESTAÇÃO: ")));
