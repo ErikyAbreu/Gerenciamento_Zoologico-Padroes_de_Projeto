@@ -265,5 +265,24 @@ public class DAOAnimais {
             }
         }
 
+        public String getTipo(int idAnimal){
+            sql = "SELECT tipo FROM animais WHERE idAnimal = ?";
+            String tipoDoAnimal = new String();
+            try {
+                PreparedStatement instrucao = conectar.prepareStatement(sql);
+                instrucao.setInt(1, idAnimal);
+                ResultSet consulta = instrucao.executeQuery();
+                while(consulta.next()){
+                    tipoDoAnimal = consulta.getString("tipo");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return tipoDoAnimal;
+        }
 
+        public int gestacaoDoAnimal(int idAnimal){
+            int gestacaoDoAnimal = auxiliar.getGestacao(idAnimal);
+            return gestacaoDoAnimal;
+        }
 }
