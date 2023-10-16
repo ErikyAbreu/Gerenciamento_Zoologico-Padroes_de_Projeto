@@ -8,8 +8,7 @@ import DAOZoologico.DAOFuncionarios;
 import Funcionarios.*;
 public class GerenciadorFuncionarios implements Gerenciador {
 	
-	DAOFuncionarios daoFuncionario = new DAOFuncionarios();
-
+	private DAOFuncionarios daoFuncionario = new DAOFuncionarios();
 	public GerenciadorFuncionarios() {
 		setListaFuncionarios(new ArrayList<Funcionario>());
 	}
@@ -24,7 +23,13 @@ public class GerenciadorFuncionarios implements Gerenciador {
 	
 	public void addFuncionario(Funcionario f) {
 		
-		JOptionPane.showMessageDialog(null,"FUNCIONÁRIO CADASTRADO COM SUCESSO!");
+		if(daoFuncionario.addFuncionario(f)){
+			JOptionPane.showMessageDialog(null,"FUNCIONÁRIO CADASTRADO COM SUCESSO!");
+			return;
+		}
+
+		JOptionPane.showMessageDialog(null,"NÃO FOI POSSIVEL CADASTRAR O FUNCIONARIO!");
+		
 	}	
 	
 	public void remover(int matricula) {
