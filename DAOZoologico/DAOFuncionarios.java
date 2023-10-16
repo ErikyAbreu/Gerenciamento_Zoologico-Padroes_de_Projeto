@@ -61,13 +61,13 @@ public class DAOFuncionarios {
     }
 
     public void imprimirFuncionario(int matriculaFunc){
-        sql = "SELECT funcionarios.*, salas.numero_da_sala AS numero_da_sala, salas.setor AS setor, FROM funcionarios INNER JOIN salas ON funcionarios.sala = sala.numero_da_sala WHERE id = ?";
+        sql = "SELECT funcionarios.*, salas.numero_da_sala AS numero_da_sala, salas.setor AS setor FROM funcionarios INNER JOIN salas ON funcionarios.sala = salas.numero_da_sala WHERE matricula = ?";
         PreparedStatement instrucao;
         try {
             instrucao = conectar.prepareStatement(sql);
             instrucao.setInt(1,matriculaFunc);
             ResultSet consulta = instrucao.executeQuery();
-            if(consulta.next()){
+            while(consulta.next()){
                 String nome = consulta.getString("nome");
                 String cargo = consulta.getString("cargo");
                 int matriculaFuncionario = consulta.getInt("matricula");
@@ -83,12 +83,12 @@ public class DAOFuncionarios {
     }
 
     public void imprimirFuncionarios(){
-        sql = "SELECT funcionarios.*, salas.numero_da_sala AS numero_da_sala, salas.setor AS setor, FROM funcionarios INNER JOIN salas ON funcionarios.sala = sala.numero_da_sala ";
+        sql = "SELECT funcionarios.*, salas.numero_da_sala AS numero_da_sala, salas.setor AS setor FROM funcionarios INNER JOIN salas ON funcionarios.sala = salas.numero_da_sala ";
         PreparedStatement instrucao;
         try {
             instrucao = conectar.prepareStatement(sql);
             ResultSet consulta = instrucao.executeQuery();
-            if(consulta.next()){
+            while(consulta.next()){
                 String nome = consulta.getString("nome");
                 String cargo = consulta.getString("cargo");
                 int matriculaFuncionario = consulta.getInt("matricula");
