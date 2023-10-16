@@ -18,7 +18,6 @@ public class DAOFuncionarios {
         a = false;
         int idSala = auxiliar.adicionaSalaParaFuncionario(f.getSala());
         int idFunc = 0;
-        System.out.println(idSala);
         sql = "INSERT INTO funcionarios (nome,cargo,matricula,sala,salario_base) VALUES (?,?,?,?,?) RETURNING id";
         try {
             PreparedStatement instrucao = conectar.prepareStatement(sql);
@@ -37,6 +36,26 @@ public class DAOFuncionarios {
             e.printStackTrace();
         }
         return a;
+    }
+
+    public boolean removerFuncionario(int matriculaFunc){
+        sql = "DELETE FROM funcionarios WHERE matricula = ?";
+            a = false;
+           
+                try {
+                PreparedStatement instrucao = conectar.prepareStatement(sql);
+                instrucao.setInt(1, matriculaFunc);
+                int linhasAfetadas = instrucao.executeUpdate();
+                if(linhasAfetadas > 0){
+                    return a = true;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            
+            
+            return a;
     }
 
 
