@@ -1,26 +1,17 @@
 package Jaulas;
 
 public class Sala {
-	private int numLocal;
 	private int setor;
 	
 	public Sala() {
-		this.numLocal = 00;
 		this.setor = 00;
 	}
 	
-	public Sala(int numLocal, int setor) {
-		this.numLocal = numLocal;
+	public Sala( int setor) {
 		this.setor = setor;
 	}
 
 
-	public int getNumLocal() {
-		return numLocal;
-	}
-	public void setNumLocal(int numLocal) {
-		this.numLocal = numLocal;
-	}
 	public int getSetor() {
 		return setor;
 	}
@@ -43,6 +34,6 @@ public class Sala {
 	
 	@Override
 	public String toString() {
-		return " SALA: " + numLocal + "\nSETOR: " + infSetor();
+		return "\nSETOR: " + infSetor();
 	}
 }
